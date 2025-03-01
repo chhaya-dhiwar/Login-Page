@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Project</title>
+<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/originals/46/16/e2/4616e2ed344242d9fef9d7a264859e7b.gif" alt="Welcome Image" class="welcome-img">
+        <h1 style="font-size: 28px; color: #ef115fe0;">Welcome to Our Platform</h1>
+        <button onclick="showSignup()">Sign Up</button>
+        <button onclick="showLogin()">Login</button>
+        <button onclick="showLogout()">Log Out</button>
+    </div>
+
+    <div id="signup-form" class="form-container">
+        <i class="fas fa-arrow-left back-icon" onclick="showHome()"></i>
+        <img src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif" alt="user" class="user-img">
+        <h1 style="font-size: 28px; color: blue;">Welcome to Sign Up page</h1>
+        <form id="signup" onsubmit="return validateSignup()">
+            <div class="input-group">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="signup-fullname" placeholder="Full Name" required>
+                <p class="error" id="name-error">Full name must contain at least two words</p>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <p class="error" id="email-error">Invalid email format</p>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-phone icon"></i>
+                <input type="text" id="signup-phone" placeholder="Contact Number" required>
+                <p class="error" id="phone-error">Phone number must be 10 digits</p>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <p class="error" id="password-error">Password must be 8-16 characters with letters, numbers & special characters</p>
+                <i class="fas fa-eye eye-icon" onclick="togglePassword('signup-password', this)"></i>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
+                <p class="error" id="confirm-password-error">Passwords do not match</p>
+                <i class="fas fa-eye eye-icon" onclick="togglePassword('signup-confirm-password', this)"></i>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="footer-msg">Already have an account? <a onclick="showLogin()">Login</a></p>
+        <p class="footer-msg">Want to exit? <a onclick="showLogout()">Log Out</a></p>
+    </div>
+
+    <div id="login-form" class="form-container">
+        <i class="fas fa-arrow-left back-icon" onclick="showHome()"></i>
+       <img src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif" alt="user" class="user-img">
+        
+        <h1 style="font-size: 28px; color: blue;">Welcome to Login page</h1>
+        <form id="login" onsubmit="return validateLogin()">
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="login-email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <i class="fas fa-eye eye-icon" onclick="togglePassword('login-password', this)"></i>
+            </div>
+            <p class="forgot-password" onclick="resetPassword()">Forget Password?</p>
+            <button type="submit">Login</button>
+        </form>
+        <p class="footer-msg">Don't have an account? <a onclick="showSignup()">Sign Up</a></p>
+        <p class="footer-msg">Want to exit? <a onclick="showLogout()">Log Out</a></p>
+    </div>
+
+    <div id="logout-form" class="form-container">
+        <i class="fas fa-arrow-left back-icon" onclick="showHome()"></i>
+        <img src="https://cdn.pixabay.com/animation/2022/12/05/10/47/10-47-58-930_512.gif" alt="user" class="user-img">
+        <h1 style="font-size: 28px; color: blue;">Welcome to Log Out page</h1>
+        <form id="logout" onsubmit="return validateLogout()">
+            <div class="input-group">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="logout-fullname" placeholder="Full Name" required>
+                <p class="error" id="logout-name-error">Full name must contain at least two words</p>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="logout-email" placeholder="Email" required>
+                <p class="error" id="logout-email-error">Invalid email format</p>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="logout-password" placeholder="Password" required>
+                <p class="error" id="logout-password-error">Password must be 8-16 characters with letters, numbers & special characters</p>
+                <i class="fas fa-eye eye-icon" onclick="togglePassword('logout-password', this)"></i>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="logout-confirm-password" placeholder="Confirm Password" required>
+                <p class="error" id="logout-confirm-password-error">Passwords do not match</p>
+                <i class="fas fa-eye eye-icon" onclick="togglePassword('logout-confirm-password', this)"></i>
+            </div>
+            <button type="submit">Log Out</button>
+        </form>
+    </div>
+    <script src="script.js">
+    </script>
+</body>
+</html>
